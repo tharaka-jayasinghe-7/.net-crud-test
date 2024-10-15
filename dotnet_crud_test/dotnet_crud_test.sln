@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet_crud_test", "dotnet_crud_test\dotnet_crud_test.csproj", "{A27CD3B2-D0AA-4907-86A4-69B893FE027F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A27CD3B2-D0AA-4907-86A4-69B893FE027F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A27CD3B2-D0AA-4907-86A4-69B893FE027F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A27CD3B2-D0AA-4907-86A4-69B893FE027F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A27CD3B2-D0AA-4907-86A4-69B893FE027F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
