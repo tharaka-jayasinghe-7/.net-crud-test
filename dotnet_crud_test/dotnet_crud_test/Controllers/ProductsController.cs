@@ -46,4 +46,67 @@ public class ProductsController : Controller
         
         return RedirectToAction("Index", "Products");
     }
+
+    public IActionResult Edit(int id)
+    {
+        var product = context.Products.Find(id);
+
+        if (product == null)
+        {
+            return RedirectToAction("Index", "Products");
+        }
+
+        var productDto = new ProductDto()
+        {
+            Name = product.Name,
+            Brand = product.Brand,
+            Category = product.Category,
+            Price = product.Price,
+            Description = product.Description,
+        };
+        ViewData["ProductId"] = product.Id;
+        ViewData["CreatedAt"] = product.CreatedAt.ToString("dd/MM/yyyy");
+       
+        
+        return View(productDto);
+    }
+    
+    [HttpPost]
+    public IActionResult Edit(int id, ProductDto productDto)
+    {
+        var product = context.Products.Find(id);
+        if (product == null)
+        {
+            return RedirectToAction("Index", "Products");
+        }
+
+        if (!ModelState.IsValid)
+        {
+            ViewData["ProductId"] = product.Id;
+            ViewData["CreatedAt"] = product.CreatedAt.ToString("dd/MM/yyyy");
+            return View(productDto);
+        }
+        product.Name = productDto.Name;
+        product.Brand = productDto.Brand;
+        product.Category = productDto.Category;
+        product.Price = productDto.Price;
+        product.Description = productDto.Description;
+        
+        context.SaveChanges();
+        return RedirectToAction("Index", "Products");
+    }
+
+    public IActionResult Delete(int id)
+    {
+        var product = context.Products.Find(id);
+
+        if (product == null)
+        {
+            return RedirectToAction("Index", "Products");
+        }
+        context.Products.Remove(product);
+        context.SaveChanges(true);
+        
+        return RedirectToAction("Index", "Products");
+    }
 }
